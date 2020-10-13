@@ -10,11 +10,41 @@ using System.Windows.Forms;
 
 namespace TestVersionWorkTestMashin
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabControl1.Appearance = TabAppearance.Buttons;
+            tabControl1.ItemSize = new System.Drawing.Size(0, 1);
+            tabControl1.SizeMode = TabSizeMode.Fixed;
+            tabControl1.TabStop = false;
+            this.ActiveControl = button1;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = tabPage1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = tabPage2;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = tabPage3;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.tabControl1.SelectedTab = tabPage4;
         }
     }
 }

@@ -1,0 +1,10 @@
+D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\bin\Debug\TestVersionWorkTestMashin.exe.config
+D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\bin\Debug\TestVersionWorkTestMashin.exe
+D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\bin\Debug\TestVersionWorkTestMashin.pdb
+D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\obj\Debug\TestVersionWorkTestMashin.csprojAssemblyReference.cache
+D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\obj\Debug\TestVersionWorkTestMashin.Properties.Resources.resources
+D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\obj\Debug\TestVersionWorkTestMashin.csproj.GenerateResource.cache
+D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\obj\Debug\TestVersionWorkTestMashin.csproj.CoreCompileInputs.cache
+D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\obj\Debug\TestVersionWorkTestMashin.exe
+D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\obj\Debug\TestVersionWorkTestMashin.pdb
+D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\obj\Debug\TestVersionWorkTestMashin.MainForm.resources
