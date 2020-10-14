@@ -28,6 +28,16 @@ namespace TestVersionWorkTestMashin.Controller
             return bufferTable;
         }
 
+        public DataTable EditUpdateTable(string str)
+        {
+            connection.Open();
+            dataAdapter = new OleDbDataAdapter(str, connection);
+            bufferTable.Clear();
+            dataAdapter.Fill(bufferTable);
+            connection.Close();
+            return bufferTable;
+        }
+
         public int getQuery()
         {
             connection.Open();

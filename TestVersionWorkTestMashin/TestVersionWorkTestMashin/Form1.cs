@@ -14,10 +14,14 @@ namespace TestVersionWorkTestMashin
     public partial class MainForm : Form
     {
         Query controler;
+        Query controlerThing;
+        Query controlerThingKey;
         public MainForm()
         {
             InitializeComponent();
             controler = new Query(ConnectionString.connstr);
+            controlerThing = new Query(ConnectionString.connstr);
+            controlerThingKey = new Query(ConnectionString.connstr);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -29,8 +33,22 @@ namespace TestVersionWorkTestMashin
             tabControl1.TabStop = false;
             this.ActiveControl = button1;
             this.dataGridView1.DataSource = controler.UpdateTable();
-            this.label6.Text = "Количество записей " + controler.getQuery();
+            this.label6.Text = "Количество ключей " + controler.getQuery();
             this.dataGridView1.Columns[0].Visible = false;
+            this.dataGridView3.DataSource = controlerThing.EditUpdateTable("SELECT * FROM Thing");
+            this.dataGridView3.Columns[0].Visible = false;
+            this.dataGridView3.Columns[5].Visible = false;
+            this.dataGridView3.Rows[1].Cells[1].Selected = true;
+            //this.label8.Text = dataGridView3.CurrentRow.Cells[5].Value.ToString();
+            this.dataGridKeyThing.DataSource = controlerThingKey.EditUpdateTable("SELECT id as ID, key1 as key_first,key2 as key_second,key3 as key_three FROM Key_table WHERE id =" + dataGridView3.Rows[1].Cells[5].Value.ToString());
+            this.dataGridKeyThing.Columns[0].Visible = false;
+            this.dataGridKeyThing.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridKeyThing.SelectionMode = DataGridViewSelectionMode.CellSelect;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -56,26 +74,58 @@ namespace TestVersionWorkTestMashin
         private void button8_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = controler.UpdateTable();
-            this.label6.Text = "Количество записей " + controler.getQuery();
+            this.label6.Text = "Количество ключей " + controler.getQuery();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
             controler.Add(textBox1.Text,textBox2.Text,textBox3.Text);
             dataGridView1.DataSource = controler.UpdateTable();
-            label6.Text = "Количество записей " + controler.getQuery();
+            label6.Text = "Количество ключей " + controler.getQuery();
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
             controler.Delete(int.Parse(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["ID"].Value.ToString()));
             dataGridView1.DataSource = controler.UpdateTable();
-            this.label6.Text = "Количество записей " + controler.getQuery();
+            this.label6.Text = "Количество ключей " + controler.getQuery();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            this.label8.Text = dataGridView3.CurrentRow.Cells[5].Value.ToString();
+        }
+
+        private void dataGridKeyThing_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+         
+        }
+
+        private void dataGridKeyThing_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            this.dataGridKeyThing.DataSource = controlerThingKey.EditUpdateTable("SELECT id as ID, key1 as key_first,key2 as key_second,key3 as key_three FROM Key_table WHERE id =" + dataGridView3.CurrentRow.Cells[5].Value.ToString());
+        }
+
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            this.dataGridKeyThing.DataSource = controlerThingKey.EditUpdateTable("SELECT id as ID, key1 as key_first,key2 as key_second,key3 as key_three FROM Key_table WHERE id =" + dataGridView3.CurrentRow.Cells[5].Value.ToString());
         }
     }
 }
