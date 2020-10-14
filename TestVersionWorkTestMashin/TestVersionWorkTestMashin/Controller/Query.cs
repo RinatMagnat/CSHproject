@@ -27,6 +27,16 @@ namespace TestVersionWorkTestMashin.Controller
             connection.Close();
             return bufferTable;
         }
+
+        public int getQuery()
+        {
+            connection.Open();
+            command = new OleDbCommand("SELECT COUNT(*) FROM Key_table",connection);
+            int number = (int)command.ExecuteScalar();
+            connection.Close();
+            return number;
+        }
+
         public void Add(string key1,string key2,string key3)
         {
             connection.Open();

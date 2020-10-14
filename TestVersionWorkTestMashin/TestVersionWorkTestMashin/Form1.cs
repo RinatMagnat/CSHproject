@@ -29,6 +29,8 @@ namespace TestVersionWorkTestMashin
             tabControl1.TabStop = false;
             this.ActiveControl = button1;
             this.dataGridView1.DataSource = controler.UpdateTable();
+            this.label6.Text = "Количество записей " + controler.getQuery();
+            this.dataGridView1.Columns[0].Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,18 +56,21 @@ namespace TestVersionWorkTestMashin
         private void button8_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = controler.UpdateTable();
+            this.label6.Text = "Количество записей " + controler.getQuery();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
             controler.Add(textBox1.Text,textBox2.Text,textBox3.Text);
             dataGridView1.DataSource = controler.UpdateTable();
+            label6.Text = "Количество записей " + controler.getQuery();
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
             controler.Delete(int.Parse(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["ID"].Value.ToString()));
             dataGridView1.DataSource = controler.UpdateTable();
+            this.label6.Text = "Количество записей " + controler.getQuery();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
