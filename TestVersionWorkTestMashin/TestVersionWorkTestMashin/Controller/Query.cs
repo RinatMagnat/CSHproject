@@ -21,7 +21,7 @@ namespace TestVersionWorkTestMashin.Controller
         }
         public DataTable UpdateTable() {
             connection.Open();
-            dataAdapter = new OleDbDataAdapter("Select * From Key_table", connection);
+            dataAdapter = new OleDbDataAdapter("Select id as ID, key1 as key_first,key2 as key_second,key3 as key_three From Key_table", connection);
             bufferTable.Clear();
             dataAdapter.Fill(bufferTable);
             connection.Close();

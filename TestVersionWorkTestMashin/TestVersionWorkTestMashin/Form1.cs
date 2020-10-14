@@ -67,5 +67,10 @@ namespace TestVersionWorkTestMashin
             controler.Delete(int.Parse(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["ID"].Value.ToString()));
             dataGridView1.DataSource = controler.UpdateTable();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

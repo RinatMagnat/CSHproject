@@ -444,8 +444,10 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(18, 54);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(747, 196);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button8
             // 
@@ -453,7 +455,7 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(115, 23);
             this.button8.TabIndex = 2;
-            this.button8.Text = "button8";
+            this.button8.Text = "Update";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -463,7 +465,7 @@
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(115, 23);
             this.button9.TabIndex = 3;
-            this.button9.Text = "button9";
+            this.button9.Text = "Insert";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
@@ -473,7 +475,7 @@
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(115, 23);
             this.button10.TabIndex = 4;
-            this.button10.Text = "button10";
+            this.button10.Text = "Delete";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
