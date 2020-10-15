@@ -74,6 +74,8 @@
             this.dataGridKeyThing = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -308,21 +310,21 @@
             this.textBox3.Location = new System.Drawing.Point(156, 324);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(115, 20);
-            this.textBox3.TabIndex = 7;
+            this.textBox3.TabIndex = 9;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(298, 324);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(115, 20);
-            this.textBox2.TabIndex = 6;
+            this.textBox2.TabIndex = 10;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(18, 324);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(115, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBox1.TabIndex = 8;
             // 
             // button10
             // 
@@ -350,12 +352,13 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(115, 23);
             this.button8.TabIndex = 5;
-            this.button8.Text = "Update";
+            this.button8.Text = "Update Table";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(18, 54);
@@ -422,6 +425,8 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.button13);
+            this.panel8.Controls.Add(this.button12);
             this.panel8.Controls.Add(this.button11);
             this.panel8.Controls.Add(this.label8);
             this.panel8.Controls.Add(this.dataGridKeyThing);
@@ -566,6 +571,7 @@
             this.dataGridKeyThing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridKeyThing.Location = new System.Drawing.Point(16, 227);
             this.dataGridKeyThing.Name = "dataGridKeyThing";
+            this.dataGridKeyThing.ReadOnly = true;
             this.dataGridKeyThing.RowTemplate.Height = 42;
             this.dataGridKeyThing.Size = new System.Drawing.Size(751, 66);
             this.dataGridKeyThing.TabIndex = 3;
@@ -584,13 +590,39 @@
             // 
             // button11
             // 
+            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
+            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button11.Location = new System.Drawing.Point(16, 299);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(173, 32);
+            this.button11.Size = new System.Drawing.Size(173, 41);
             this.button11.TabIndex = 5;
-            this.button11.Text = "button11";
+            this.button11.Text = "Добавить ";
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button12
+            // 
+            this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
+            this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button12.Location = new System.Drawing.Point(217, 299);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(173, 41);
+            this.button12.TabIndex = 6;
+            this.button12.Text = "Изменить";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // button13
+            // 
+            this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
+            this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button13.Location = new System.Drawing.Point(418, 299);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(173, 41);
+            this.button13.TabIndex = 7;
+            this.button13.Text = "Удалить";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // MainForm
             // 
@@ -683,6 +715,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridKeyThing;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
     }
 }
 

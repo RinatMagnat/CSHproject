@@ -57,10 +57,41 @@ namespace TestVersionWorkTestMashin.Controller
             command.ExecuteNonQuery();
             connection.Close();
         }
+        public void AddThing(string name, string tipmaterial, string metClean, string nTicket, string k_t ="0") {
+            connection.Open();
+            command = new OleDbCommand($"INSERT INTO Thing(name, material, mclean, ticet, key_table) VALUES (@name, @tipmaterial, @metClean, @nTicket, @k_t)",connection);
+            command.Parameters.AddWithValue("name", name);
+            command.Parameters.AddWithValue("tipmaterial", tipmaterial);
+            command.Parameters.AddWithValue("metClean", metClean);
+            command.Parameters.AddWithValue("nTicket", nTicket);
+            command.Parameters.AddWithValue("k_t", k_t);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
         public void Delete(int id)
         {
             connection.Open();
             command = new OleDbCommand($"DELETE FROM Key_table WHERE ID ={id}", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void DeleteThing(int id)
+        {
+            connection.Open();
+            command = new OleDbCommand($"DELETE FROM Thing WHERE ID ={id}", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void DeleteThingByUseID(int id)
+        {
+            connection.Open();
+            command = new OleDbCommand($"DELETE FROM Thing WHERE key_table ={id}", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void UpdateKeyTableByID(int Id) {
+            connection.Open();
+            command = new OleDbCommand($"UPDATE Key_table set used = true WHERE ID ={Id}", connection);
             command.ExecuteNonQuery();
             connection.Close();
         }

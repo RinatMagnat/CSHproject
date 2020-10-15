@@ -8,3 +8,5 @@ D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\obj\Debug\Test
 D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\obj\Debug\TestVersionWorkTestMashin.exe
 D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\obj\Debug\TestVersionWorkTestMashin.pdb
 D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\obj\Debug\TestVersionWorkTestMashin.MainForm.resources
+D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\obj\Debug\TestVersionWorkTestMashin.Form2.resources
+D:\GitExt\CSH\TestVersionWorkTestMashin\TestVersionWorkTestMashin\obj\Debug\TestVersionWorkTestMashin.update.resources

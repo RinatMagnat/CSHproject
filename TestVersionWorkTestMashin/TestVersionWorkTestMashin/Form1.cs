@@ -38,9 +38,10 @@ namespace TestVersionWorkTestMashin
             this.dataGridView3.DataSource = controlerThing.EditUpdateTable("SELECT * FROM Thing");
             this.dataGridView3.Columns[0].Visible = false;
             this.dataGridView3.Columns[5].Visible = false;
-            this.dataGridView3.Rows[1].Cells[1].Selected = true;
+            this.dataGridView3.Rows[0].Cells[0].Selected = true;
             //this.label8.Text = dataGridView3.CurrentRow.Cells[5].Value.ToString();
-            this.dataGridKeyThing.DataSource = controlerThingKey.EditUpdateTable("SELECT id as ID, key1 as key_first,key2 as key_second,key3 as key_three FROM Key_table WHERE id =" + dataGridView3.Rows[1].Cells[5].Value.ToString());
+            this.dataGridKeyThing.DataSource = controlerThingKey.EditUpdateTable("SELECT id as ID, key1 as key_first,key2 as key_second,key3" +
+                " as key_three FROM Key_table WHERE id =" + dataGridView3.Rows[0].Cells[5].Value.ToString());
             this.dataGridKeyThing.Columns[0].Visible = false;
             this.dataGridKeyThing.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersVisible = false;
@@ -82,11 +83,15 @@ namespace TestVersionWorkTestMashin
             controler.Add(textBox1.Text,textBox2.Text,textBox3.Text);
             dataGridView1.DataSource = controler.UpdateTable();
             label6.Text = "Количество ключей " + controler.getQuery();
+            dataGridView1.CurrentCell = dataGridView1[1, dataGridView1.Rows.Count - 1];
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
+            int position = int.Parse(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["ID"].Value.ToString());
+            controler.DeleteThingByUseID(position);
             controler.Delete(int.Parse(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["ID"].Value.ToString()));
+            this.dataGridView3.DataSource = controlerThing.EditUpdateTable("SELECT * FROM Thing");
             dataGridView1.DataSource = controler.UpdateTable();
             this.label6.Text = "Количество ключей " + controler.getQuery();
         }
@@ -103,7 +108,14 @@ namespace TestVersionWorkTestMashin
 
         private void button11_Click(object sender, EventArgs e)
         {
-            this.label8.Text = dataGridView3.CurrentRow.Cells[5].Value.ToString();
+            Form2 form2 = new Form2();
+            if (form2.ShowDialog(this) == DialogResult.OK)
+            {
+                // Read the contents of testDialog's TextBox.
+                this.dataGridView3.DataSource = controlerThing.EditUpdateTable("SELECT * FROM Thing");
+                this.dataGridView3.CurrentCell = dataGridView3[1, dataGridView3.Rows.Count - 1];
+                this.dataGridKeyThing.DataSource = controlerThingKey.EditUpdateTable("SELECT id as ID, key1 as key_first,key2 as key_second,key3 as key_three FROM Key_table WHERE id =" + dataGridView3.CurrentRow.Cells[5].Value.ToString());
+            }
         }
 
         private void dataGridKeyThing_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
@@ -126,6 +138,35 @@ namespace TestVersionWorkTestMashin
         {
            
             this.dataGridKeyThing.DataSource = controlerThingKey.EditUpdateTable("SELECT id as ID, key1 as key_first,key2 as key_second,key3 as key_three FROM Key_table WHERE id =" + dataGridView3.CurrentRow.Cells[5].Value.ToString());
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            controler.Delete(int.Parse(dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells["key_table"].Value.ToString()));
+            controler.DeleteThing(int.Parse(dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells["ID"].Value.ToString()));
+            this.dataGridView3.DataSource = controlerThing.EditUpdateTable("SELECT * FROM Thing");
+            this.dataGridView1.DataSource = controler.UpdateTable();
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+          string st = dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells["name"].Value.ToString();
+          string material = dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells["material"].Value.ToString();
+          string clean = dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells["mclean"].Value.ToString();
+          string mclean = dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells["ticet"].Value.ToString();
+          string key_table = dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells["key_table"].Value.ToString();
+            update up = new update();
+            up.title = st;
+            up.nametable = st;
+            up.clean = clean;
+            up.material = material;
+            up.mclean = mclean;
+            up.key_table = key_table;
+            if (up.ShowDialog(this) == DialogResult.OK) {
+
+                MessageBox.Show("OK");
+            }
         }
     }
 }
