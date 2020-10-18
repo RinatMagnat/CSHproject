@@ -95,5 +95,25 @@ namespace TestVersionWorkTestMashin.Controller
             command.ExecuteNonQuery();
             connection.Close();
         }
+        public void UpdateThing(string name, string material, string mcclean, string tict, string id) {
+            connection.Open();
+            command = new OleDbCommand($"UPDATE Thing set name ='{name}', material ='{material}', mclean ='{mcclean}', ticet ='{tict}' WHERE ID={id} ", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void CreateDateT(string timeT) {
+            connection.Open();
+            command = new OleDbCommand($"INSERT INTO DateT(TimeT) VALUES (@timeT)", connection);
+            command.Parameters.AddWithValue("timeT", timeT);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void DeleteDateT(string ID) {
+            connection.Open();
+            command = new OleDbCommand($"DELETE FROM DateT WHERE Id ={ID}", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+
+        }
     }
 }

@@ -48,28 +48,28 @@
             this.mclener.Location = new System.Drawing.Point(118, 70);
             this.mclener.Name = "mclener";
             this.mclener.Size = new System.Drawing.Size(234, 20);
-            this.mclener.TabIndex = 4;
+            this.mclener.TabIndex = 2;
             // 
             // number_ticet
             // 
             this.number_ticet.Location = new System.Drawing.Point(118, 150);
             this.number_ticet.Name = "number_ticet";
             this.number_ticet.Size = new System.Drawing.Size(234, 20);
-            this.number_ticet.TabIndex = 6;
+            this.number_ticet.TabIndex = 4;
             // 
             // tmaterial
             // 
             this.tmaterial.Location = new System.Drawing.Point(118, 110);
             this.tmaterial.Name = "tmaterial";
             this.tmaterial.Size = new System.Drawing.Size(234, 20);
-            this.tmaterial.TabIndex = 5;
+            this.tmaterial.TabIndex = 3;
             // 
             // name
             // 
             this.name.Location = new System.Drawing.Point(118, 30);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(234, 20);
-            this.name.TabIndex = 3;
+            this.name.TabIndex = 1;
             // 
             // label4
             // 
@@ -114,7 +114,7 @@
             this.button2.Location = new System.Drawing.Point(205, 208);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(146, 39);
-            this.button2.TabIndex = 2;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Отмена";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -127,9 +127,10 @@
             this.button1.Location = new System.Drawing.Point(31, 208);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(146, 39);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 

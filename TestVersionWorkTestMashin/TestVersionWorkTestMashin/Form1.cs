@@ -35,7 +35,16 @@ namespace TestVersionWorkTestMashin
             this.dataGridView1.DataSource = controler.UpdateTable();
             this.label6.Text = "Количество ключей " + controler.getQuery();
             this.dataGridView1.Columns[0].Visible = false;
-            this.dataGridView3.DataSource = controlerThing.EditUpdateTable("SELECT * FROM Thing");
+            this.dataGridView1.Columns[1].HeaderText = "Ключ RFID_1";
+            this.dataGridView1.Columns[2].HeaderText = "Ключ RFID_2";
+            this.dataGridView1.Columns[3].HeaderText = "Ключ RFID_3";
+            this.dataGridView3.DataSource = controlerThing.EditUpdateTable("SELECT *  FROM Thing");
+            #region Заголовочные поля таблицы 3
+            this.dataGridView3.Columns[1].HeaderText = "Имя";
+            this.dataGridView3.Columns[2].HeaderText = "Материал";
+            this.dataGridView3.Columns[3].HeaderText = "Метод чистки";
+            this.dataGridView3.Columns[4].HeaderText = "Номер талона";
+            #endregion
             this.dataGridView3.Columns[0].Visible = false;
             this.dataGridView3.Columns[5].Visible = false;
             this.dataGridView3.Rows[0].Cells[0].Selected = true;
@@ -43,6 +52,11 @@ namespace TestVersionWorkTestMashin
             this.dataGridKeyThing.DataSource = controlerThingKey.EditUpdateTable("SELECT id as ID, key1 as key_first,key2 as key_second,key3" +
                 " as key_three FROM Key_table WHERE id =" + dataGridView3.Rows[0].Cells[5].Value.ToString());
             this.dataGridKeyThing.Columns[0].Visible = false;
+            #region Загаловки ключей в таблице
+            this.dataGridKeyThing.Columns[1].HeaderText = "Ключ RFID_1";
+            this.dataGridKeyThing.Columns[2].HeaderText = "Ключ RFID_2";
+            this.dataGridKeyThing.Columns[3].HeaderText = "Ключ RFID_3";
+            #endregion 
             this.dataGridKeyThing.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersVisible = false;
@@ -91,7 +105,7 @@ namespace TestVersionWorkTestMashin
             int position = int.Parse(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["ID"].Value.ToString());
             controler.DeleteThingByUseID(position);
             controler.Delete(int.Parse(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["ID"].Value.ToString()));
-            this.dataGridView3.DataSource = controlerThing.EditUpdateTable("SELECT * FROM Thing");
+            this.dataGridView3.DataSource = controlerThing.EditUpdateTable("SELECT  *  FROM Thing");
             dataGridView1.DataSource = controler.UpdateTable();
             this.label6.Text = "Количество ключей " + controler.getQuery();
         }
@@ -112,7 +126,7 @@ namespace TestVersionWorkTestMashin
             if (form2.ShowDialog(this) == DialogResult.OK)
             {
                 // Read the contents of testDialog's TextBox.
-                this.dataGridView3.DataSource = controlerThing.EditUpdateTable("SELECT * FROM Thing");
+                this.dataGridView3.DataSource = controlerThing.EditUpdateTable("SELECT name as 'Наименование', material as 'Материал', mclean as 'Метод чистки', ticet as 'Билет на чистку' FROM Thing");
                 this.dataGridView3.CurrentCell = dataGridView3[1, dataGridView3.Rows.Count - 1];
                 this.dataGridKeyThing.DataSource = controlerThingKey.EditUpdateTable("SELECT id as ID, key1 as key_first,key2 as key_second,key3 as key_three FROM Key_table WHERE id =" + dataGridView3.CurrentRow.Cells[5].Value.ToString());
             }
@@ -144,7 +158,7 @@ namespace TestVersionWorkTestMashin
         {
             controler.Delete(int.Parse(dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells["key_table"].Value.ToString()));
             controler.DeleteThing(int.Parse(dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells["ID"].Value.ToString()));
-            this.dataGridView3.DataSource = controlerThing.EditUpdateTable("SELECT * FROM Thing");
+            this.dataGridView3.DataSource = controlerThing.EditUpdateTable("SELECT name as 'Наименование', material as 'Материал', mclean as 'Метод чистки', ticet as 'Билет на чистку' FROM Thing");
             this.dataGridView1.DataSource = controler.UpdateTable();
 
         }
@@ -156,6 +170,7 @@ namespace TestVersionWorkTestMashin
           string clean = dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells["mclean"].Value.ToString();
           string mclean = dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells["ticet"].Value.ToString();
           string key_table = dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells["key_table"].Value.ToString();
+          string ID = dataGridView3.Rows[dataGridView3.CurrentRow.Index].Cells["ID"].Value.ToString();
             update up = new update();
             up.title = st;
             up.nametable = st;
@@ -163,9 +178,18 @@ namespace TestVersionWorkTestMashin
             up.material = material;
             up.mclean = mclean;
             up.key_table = key_table;
+            up.id = ID;
             if (up.ShowDialog(this) == DialogResult.OK) {
 
-                MessageBox.Show("OK");
+                this.dataGridView3.DataSource = controlerThing.EditUpdateTable("SELECT *  FROM Thing");
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            Addbydate faddbydate = new Addbydate();
+            if (faddbydate.ShowDialog(this) == DialogResult.OK) {
+                MessageBox.Show("Операция завершена");
             }
         }
     }

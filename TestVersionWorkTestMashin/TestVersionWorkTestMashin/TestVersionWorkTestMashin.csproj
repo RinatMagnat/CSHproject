@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Addbydate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Addbydate.Designer.cs">
+      <DependentUpon>Addbydate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controller\ConnectionString.cs" />
     <Compile Include="Controller\Query.cs" />
     <Compile Include="Form1.cs">
@@ -72,6 +78,9 @@
     <Compile Include="update.Designer.cs">
       <DependentUpon>update.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Addbydate.resx">
+      <DependentUpon>Addbydate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

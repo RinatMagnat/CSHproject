@@ -20,12 +20,15 @@ namespace TestVersionWorkTestMashin
         public string material;
         public string mclean;
         public string key_table;
+        public string id;
         Query query;
+        Query queryUp;
 
         public update()
         {
             InitializeComponent();
             query = new Query(ConnectionString.connstr);
+            queryUp = new Query(ConnectionString.connstr);
         }
 
         private void update_Load(object sender, EventArgs e)
@@ -43,6 +46,13 @@ namespace TestVersionWorkTestMashin
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            queryUp.UpdateThing(this.name.Text, this.tmaterial.Text, this.mclener.Text, this.number_ticet.Text, id);
+            Close();
+
         }
     }
 }
