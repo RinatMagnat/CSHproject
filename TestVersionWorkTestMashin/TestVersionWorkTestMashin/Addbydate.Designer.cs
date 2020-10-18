@@ -37,6 +37,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +50,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 26);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(240, 223);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabIndex = 1;
             // 
             // dataGridView2
             // 
@@ -59,7 +60,7 @@
             this.dataGridView2.Location = new System.Drawing.Point(305, 26);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(647, 223);
-            this.dataGridView2.TabIndex = 1;
+            this.dataGridView2.TabIndex = 2;
             // 
             // label1
             // 
@@ -95,8 +96,13 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 281);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(240, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBox1.Size = new System.Drawing.Size(172, 20);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.AcceptsTabChanged += new System.EventHandler(this.textBox1_AcceptsTabChanged);
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
+            this.textBox1.CursorChanged += new System.EventHandler(this.textBox1_CursorChanged);
+            this.textBox1.TabIndexChanged += new System.EventHandler(this.textBox1_TabIndexChanged);
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
             // 
@@ -111,19 +117,31 @@
             // 
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(15, 362);
+            this.button2.Location = new System.Drawing.Point(12, 360);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(172, 47);
-            this.button2.TabIndex = 8;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Удалить дату";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(190, 307);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(169, 47);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Экспорт в дату ";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // Addbydate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 441);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox1);
@@ -156,5 +174,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

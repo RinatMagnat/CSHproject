@@ -16,12 +16,14 @@ namespace TestVersionWorkTestMashin
         Query controler;
         Query controlerThing;
         Query controlerThingKey;
+        Query controlerWish;
         public MainForm()
         {
             InitializeComponent();
             controler = new Query(ConnectionString.connstr);
             controlerThing = new Query(ConnectionString.connstr);
             controlerThingKey = new Query(ConnectionString.connstr);
+            controlerWish = new Query(ConnectionString.connstr);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -39,6 +41,15 @@ namespace TestVersionWorkTestMashin
             this.dataGridView1.Columns[2].HeaderText = "Ключ RFID_2";
             this.dataGridView1.Columns[3].HeaderText = "Ключ RFID_3";
             this.dataGridView3.DataSource = controlerThing.EditUpdateTable("SELECT *  FROM Thing");
+            this.dataGridView2.DataSource = controlerWish.EditUpdateTable(@"SELECT DateT.TimeT as 'Время', Thing.name as 'Наименование', Thing.material as 'Материал', 
+                                                                           Thing.mclean as 'Метод чистки', Thing.ticet as 'Билет на чистку'
+                                                                           FROM DateT,Thing,TimeThink WHERE DateT.ID = TimeThink.DateT 
+                                                                           AND  TimeThink.Thing = Thing.ID");
+            this.dataGridView2.Columns[0].HeaderText = "Дата";
+            this.dataGridView2.Columns[1].HeaderText = "Наименование";
+            this.dataGridView2.Columns[2].HeaderText = "Материал";
+            this.dataGridView2.Columns[3].HeaderText = "Метод чистки";
+            this.dataGridView2.Columns[4].HeaderText = "Билет на чистку";
             #region Заголовочные поля таблицы 3
             this.dataGridView3.Columns[1].HeaderText = "Имя";
             this.dataGridView3.Columns[2].HeaderText = "Материал";
