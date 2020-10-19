@@ -135,6 +135,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "Экспорт в дату ";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Addbydate
             // 
@@ -155,7 +156,8 @@
             this.MinimumSize = new System.Drawing.Size(990, 480);
             this.Name = "Addbydate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Добавить дату сервиса";
+            this.Text = "Добавить сервис дату";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Addbydate_FormClosed);
             this.Load += new System.EventHandler(this.Addbydate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

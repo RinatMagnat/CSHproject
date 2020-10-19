@@ -113,7 +113,28 @@ namespace TestVersionWorkTestMashin.Controller
             command = new OleDbCommand($"DELETE FROM DateT WHERE Id ={ID}", connection);
             command.ExecuteNonQuery();
             connection.Close();
-
+        }
+        public void AddTimeThink(string DateT, string Think) {
+            connection.Open();
+            command = new OleDbCommand($"INSERT INTO TimeThink(Thing,DateT) VALUES (@think,DateT)", connection);
+            command.Parameters.AddWithValue("think", Think);
+            command.Parameters.AddWithValue("DateT", DateT);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void DeleteTimeThink(string id)
+        {
+            connection.Open();
+            command = new OleDbCommand($"DELETE FROM TimeThink WHERE ID ={id}", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void DeleteTimeThinkByDate(string id)
+        {
+            connection.Open();
+            command = new OleDbCommand($"DELETE FROM TimeThink WHERE DateT = {id}", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }

@@ -17,12 +17,14 @@ namespace TestVersionWorkTestMashin
         Query qrnew;
         Query qr;
         Query thqr;
+        Query addqr;
         public Addbydate()
         {
             InitializeComponent();
             qrnew = new Query(ConnectionString.connstr);
             qr = new Query(ConnectionString.connstr);
             thqr = new Query(ConnectionString.connstr);
+            addqr = new Query(ConnectionString.connstr);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,13 +43,13 @@ namespace TestVersionWorkTestMashin
         private void Addbydate_Load(object sender, EventArgs e)
         {
            dataGridView1.DataSource = qrnew.EditUpdateTable("SELECT * FROM DateT Order by Id Desc");
-           dataGridView2.DataSource = thqr.EditUpdateTable("SELECT t.* FROM  Thing as t WHERE t.id<>(select Thing from TimeThink)");
+            dataGridView2.DataSource = thqr.EditUpdateTable("SELECT t.* FROM  Thing as t WHERE t.id not in (select Thing from TimeThink)");
 
 
 
 
 
-           dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersVisible = false;
            dataGridView1.Columns[0].Visible = false;
            dataGridView1.Columns[1].HeaderText = "Дата исполнения";
            dataGridView2.RowHeadersVisible = false;
@@ -66,7 +68,9 @@ namespace TestVersionWorkTestMashin
         private void button2_Click(object sender, EventArgs e)
         {
             qrnew.DeleteDateT(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["ID"].Value.ToString());
+            qrnew.DeleteTimeThinkByDate(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["ID"].Value.ToString());
             dataGridView1.DataSource = qrnew.EditUpdateTable("SELECT * FROM DateT Order by ID Desc");
+            dataGridView2.DataSource = thqr.EditUpdateTable("SELECT t.* FROM  Thing as t WHERE t.id not in (select Thing from TimeThink)");
         }
 
         private void textBox1_CursorChanged(object sender, EventArgs e)
@@ -95,6 +99,17 @@ namespace TestVersionWorkTestMashin
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             textBox1.ForeColor = Color.Black;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+        addqr.AddTimeThink(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells["ID"].Value.ToString(), dataGridView2.Rows[dataGridView2.CurrentRow.Index].Cells["ID"].Value.ToString());
+        dataGridView2.DataSource = thqr.EditUpdateTable("SELECT t.* FROM  Thing as t WHERE t.id not in (select Thing from TimeThink)");
+        }
+
+        private void Addbydate_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DialogResult = DialogResult.OK;
         }
     }
 }
