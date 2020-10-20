@@ -340,7 +340,7 @@ namespace TestVersionWorkTestMashin
             try
             {
 
-                StreamWriter sw = new StreamWriter(path + "Simple.txt",true,Encoding.UTF8);
+                StreamWriter sw = new StreamWriter(path + "Simple.txt",false,Encoding.UTF8);
                 for (int i = 0; i < this.dataGridView2.Rows.Count; i++)
                 {
                     sw.WriteLine(dataGridView2.Rows[i].Cells[1].Value.ToString() + " " + dataGridView2.Rows[i].Cells[2].Value.ToString() + " " + dataGridView2.Rows[i].Cells[3].Value.ToString() +
